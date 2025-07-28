@@ -1,0 +1,102 @@
+code 1:
+public class DivideByZero {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        }
+    }
+}
+-------------------------------------------------------
+code 2:
+public class ArrayException {
+    public static void main(String[] args) {
+        try {
+            int[] arr = {1, 2, 3};
+            System.out.println(arr[5]);  
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index is out of bounds.");
+        }
+    }
+}
+---------------------------------------------------------------
+code 3:
+public class NullPointerExample {
+    public static void main(String[] args) {
+        try {
+            String name = null;
+            System.out.println(name.length());
+        } catch (NullPointerException e) {
+            System.out.println("Error: Attempted to access method on null.");
+        }
+    }
+}
+------------------------------------------------------------------------
+code 4:
+public class MultipleCatch {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(10 / 0);
+            System.out.println(numbers[5]);
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception caught.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array Index Exception caught.");
+        }
+    }
+}
+---------------------------------------------------------------------------
+code 5:
+public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int x = 5 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Caught an exception.");
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+----------------------------------------------------------------------------
+code 6:
+class AgeTooLowException extends Exception {
+    AgeTooLowException(String message) {
+        super(message);
+    }
+}
+public class CustomExceptionExample {
+    static void checkAge(int age) throws AgeTooLowException {
+        if (age < 18) {
+            throw new AgeTooLowException("Age must be at least 18.");
+        } else {
+            System.out.println("Eligible to vote.");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(16);
+        } catch (AgeTooLowException e) {
+            System.out.println("Custom Exception: " + e.getMessage());
+        }
+    }
+}
+----------------------------------------------------------------------
+code 7:
+public class LoopException {
+    public static void main(String[] args) {
+        int[] nums = {10, 5, 0, 2};
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            try {
+                System.out.println("Result: " + nums[i] / nums[i + 1]);
+            } catch (ArithmeticException e) {
+                System.out.println("Cannot divide by zero.");
+            }
+        }
+    }
+}
